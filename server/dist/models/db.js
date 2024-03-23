@@ -9,9 +9,9 @@ exports.client = new pg_1.Client({
     port: 5432,
     password: process.env.PASSWORD,
     database: process.env.DB,
-    // ssl:{
-    //     rejectUnauthorized:false
-    // }
+    ssl:{
+        rejectUnauthorized:false
+    }
 });
 exports.client.connect()
     .then(() => {

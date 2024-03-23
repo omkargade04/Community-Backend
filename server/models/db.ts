@@ -8,9 +8,9 @@ export const client = new Client(
         port: 5432,
         password: process.env.PASSWORD,
         database: process.env.DB,
-        // ssl:{
-        //     rejectUnauthorized:false
-        // }
+        ssl:{
+            rejectUnauthorized:false
+        }
     }
 )
 client.connect()

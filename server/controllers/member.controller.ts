@@ -38,7 +38,7 @@ const addMember = async (req: any, res: any) => {
           created_at: timeStamp,
         },
       },
-      message: "Member successfully added to the communnity"
+      message: "Member successfully added to the communnity",
     });
   } catch (err: any) {
     console.log(err);
@@ -54,19 +54,23 @@ const removeMember = async (req: any, res: any) => {
     const member_id = req.params.id;
     console.log(member_id);
     const user_id = req.user.id;
-    console.log(user_id)
+    console.log(user_id);
     const adminRole_id = 7177065090381910904;
 
     //Verifying if the user is admin or not
     const verifyAdminQuery = `SELECT * FROM members WHERE user_id = ${user_id} AND role_id = 7177065090381910904`;
-    const verifyAdminResult: QueryResult<any> = await client.query(verifyAdminQuery);
+    const verifyAdminResult: QueryResult<any> = await client.query(
+      verifyAdminQuery
+    );
     const community_id = verifyAdminResult.rows[0].community_id;
     console.log(community_id);
 
-    const deleteMemberQuery = `DELETE FROM members WHERE community_id = ${community_id} AND id = ${member_id}`
-    const deleteMemberResult: QueryResult<any> = await client.query(deleteMemberQuery);
+    const deleteMemberQuery = `DELETE FROM members WHERE community_id = ${community_id} AND id = ${member_id}`;
+    const deleteMemberResult: QueryResult<any> = await client.query(
+      deleteMemberQuery
+    );
 
-    res.status(200).json({status: true, message: "Member removed"});
+    res.status(200).json({ status: true, message: "Member removed" });
   } catch (err: any) {
     console.log(err);
     res

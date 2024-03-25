@@ -52,27 +52,31 @@ const addMember = async (req: any, res: any) => {
 const removeMember = async (req: any, res: any) => {
   try {
     const member_id = req.params.id;
-    console.log(member_id);
+    // console.log(member_id);
     const user_id = req.user.id;
-    console.log(user_id);
-    const adminRole_id = 7177065090381910904;
+    // console.log(user_id);
+    const adminRole_id = 7177195729255833730;
 
     //Verifying if the user is admin or not
-    const verifyAdminQuery = `SELECT * FROM members WHERE user_id = ${user_id} AND role_id = 7177065090381910904`;
+    const verifyAdminQuery = `SELECT * FROM members WHERE user_id = $1 AND role_id = $2`;
+    const verifyAdminParams = [user_id, adminRole_id];
     const verifyAdminResult: QueryResult<any> = await client.query(
-      verifyAdminQuery
+      verifyAdminQuery, verifyAdminParams
     );
-    const community_id = verifyAdminResult.rows[0].community_id;
-    console.log(community_id);
+    // console.log("community id: ");
 
-    const deleteMemberQuery = `DELETE FROM members WHERE community_id = ${community_id} AND id = ${member_id}`;
+    const community_id = verifyAdminResult.rows[0].community_id;
+    // console.log("community id: ",verifyAdminResult.rows[0]);
+
+    const deleteMemberQuery = `DELETE FROM members WHERE community_id = $1 AND user_id = $2`;
+    const deleteParams: any[] = [community_id, member_id];
     const deleteMemberResult: QueryResult<any> = await client.query(
-      deleteMemberQuery
+      deleteMemberQuery, deleteParams
     );
 
     res.status(200).json({ status: true, message: "Member removed" });
   } catch (err: any) {
-    console.log(err);
+    console.log("This is error: ",err);
     res
       .status(500)
       .json({ status: false, content: { message: "Internal Server Error" } });

@@ -27,8 +27,9 @@ $ npm run dev
 
 - 
 ## Flow of Application
-- First step is you need to integrate your database(PostgreSQL) with the application 
-  go to .env and add your database credentials accordingly
+- First you need to cd into the server directory and run "npm install" to install the node_modules.
+- Secondly you need to integrate your database(PostgreSQL) with the application 
+  create a .env and add your database credentials accordingly
 - Run the following command line : "npm run dev" to get started with the application
 - To test the API endpoints, open any API Tester application such as Postman or Thunder Client.
 - Make sure that you login with a user and give its Authentication Bearer Token in the Token field.

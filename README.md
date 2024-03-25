@@ -34,3 +34,8 @@ $ npm run dev
 - To test the API endpoints, open any API Tester application such as Postman or Thunder Client.
 - Make sure that you login with a user and give its Authentication Bearer Token in the Token field.
 - Test the APIs and you are all set to go.
+
+- ## API Documentation
+- I made a api documentation for the project. The link is below.
+- Read the documentation and test the routes
+- https://documenter.getpostman.com/view/27201705/2sA35BcQZY

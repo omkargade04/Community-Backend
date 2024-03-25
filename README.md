@@ -38,4 +38,4 @@ $ npm run dev
 - ## API Documentation
 - I made an api documentation for the project. The link is below.
 - Read the documentation and test the routes
-- https://documenter.getpostman.com/view/27201705/2sA35BcQZY
+- https://documenter.getpostman.com/view/27201705/2sA35Bd4zc

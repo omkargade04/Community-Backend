@@ -111,7 +111,7 @@ const signin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userId = req.user.id;
-        const queryUser = `SELECT * FROM users WHERE id=$1 RETURNING id`;
+        const queryUser = `SELECT * FROM users WHERE id=$1`;
         const queryUserParams = [userId];
         const userQueryData = yield db_1.client.query(queryUser, queryUserParams);
         res.status(201).json({

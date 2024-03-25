@@ -1,10 +1,10 @@
 import express, { Router } from 'express';
+import { isAuthenticated } from '../middlewares/user.middleware';
 const userRouter: Router = express.Router();
 const { signup, signin, getUser } = require('../controllers/user.controller');
-// const {isAuthenticated } = require('../middleware/userMiddleware');
 
 userRouter.post("/signup", signup);
 userRouter.post("/signin", signin);
-userRouter.get("/me", getUser);
+userRouter.get("/me", isAuthenticated, getUser);
 
 module.exports = userRouter;

@@ -118,7 +118,7 @@ const signin = async (req: ReqMid, res: Response) => {
 const getUser = async (req: any, res: any) => {
   try {
     const userId = req.user.id;
-    const queryUser = `SELECT * FROM users WHERE id=$1 RETURNING id`;
+    const queryUser = `SELECT * FROM users WHERE id=$1`;
     const queryUserParams = [userId];
     const userQueryData = await client.query(queryUser, queryUserParams);
     res.status(201).json({

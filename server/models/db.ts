@@ -3,13 +3,13 @@ require('dotenv').config();
 
 export const client = new Client(
     {
-        host: process.env.HOST,
-        user: process.env.USER,
+        host: "ep-curly-salad-a1knvhto.ap-southeast-1.aws.neon.tech",
+        user: "community-backend_owner",
         port: 5432,
-        password: process.env.PASSWORD,
-        database: process.env.DB,
+        password: "qI8twT6YzZku",
+        database: 'community-backend',
         ssl:{
-            rejectUnauthorized:false
+            rejectUnauthorized:true
         }
     }
 )

@@ -1,0 +1,32 @@
+movies(
+    movie_id int primary key,
+    genre [] fk,
+    cast_id int
+    runtime
+    constraint cast_id foreign key(cast_id) references cast(cast_id)
+    constraint genre foreign key(genre) references categories(category_id)
+)
+
+cast(
+    cast_id,
+    cast_name, varchar
+)
+
+categories(
+    category_id int primary key,
+    category_name varchar
+    movie_id fk
+)
+
+mpvie A(
+    movie_id - 1
+    categorie_id - 1
+    genre [romance],
+    cast_id - 
+)
+mpvie B(
+    movie_id - 2
+    categorie_id - 1
+    genre [romance],
+    cast_id - 
+)

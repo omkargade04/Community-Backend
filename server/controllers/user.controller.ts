@@ -121,6 +121,7 @@ const getUser = async (req: any, res: any) => {
     const queryUser = `SELECT * FROM users WHERE id=$1`;
     const queryUserParams = [userId];
     const userQueryData = await client.query(queryUser, queryUserParams);
+    console.log(userQueryData.rows[0]);
     res.status(201).json({
       status: true,
       content: {

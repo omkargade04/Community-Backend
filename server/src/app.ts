@@ -20,7 +20,7 @@ app.use('/v1/role', roleRoutes);
 app.use('/v1/community', communityRoutes)
 app.use('/v1/member', memberRoutes)
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 app.get('/', async (req: Request, res: Response) => {
     try {
